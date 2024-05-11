@@ -1,33 +1,29 @@
-// data = [
-//   {
-//     week: 1,
-//     y: 2000
-//   },
-//   {
-//     week: 2,
-//     y: 3000
-//   },{
-//     week: 3,
-//     y: 4000
-//   },{
-//     week: 4,
-//     y: 5000
-//   },
-// ]
+// Create a new Date object representing the current date
+const today = new Date();
 
-// const embed = (data) => {
-//   console.log(data[0]['week'])
-// }
-// embed(data)
+// Get the month and year components of the current date
+let currentMonth = today.getMonth();
+let currentYear = today.getFullYear();
 
-const array = [1, 2, 3, 4, 5, 6]; // Example array
-const startIndex = 2; // Index to start deletion
-const endIndex = array.length; // Index to end deletion (inclusive)
+// Decrease the month by 1
+currentMonth -= 1;
 
-// Calculate number of elements to delete
-let numElementsToDelete = endIndex - startIndex + 1;
+// Handle cases where the current month is January
+if (currentMonth < 0) {
+  currentMonth = 11; // Set to December
+  currentYear -= 1; // Subtract 1 from the year
+}
 
-// Use splice to delete elements
-array.splice(startIndex, numElementsToDelete);
+// Create a new Date object representing the decreased date
+const decreasedDate = new Date(currentYear, currentMonth, today.getDate());
 
-console.log(array); // Output: [1, 2, 5]
+// Get the individual components of the decreased date (year, month, day)
+const decreasedYear = decreasedDate.getFullYear();
+const decreasedMonth = String(decreasedDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+const decreasedDay = String(decreasedDate.getDate()).padStart(2, '1');
+
+// Construct the date string in the format YYYY-MM-DD
+const firstDay = `${decreasedYear}-${decreasedMonth}-${decreasedDay}`;
+
+console.log(firstDay);
+console.log(decreasedMonth);

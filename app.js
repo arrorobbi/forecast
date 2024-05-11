@@ -7,8 +7,8 @@ const routes = require('./router/index')
 
 const app = express();
 
-// const notFoundMiddleware = require('./middlewares/not-found');
-// const errorHandlerMiddleware = require('./middlewares/handler-error');
+const notFoundMiddleware = require('./middlewares/not-found');
+const errorHandlerMiddleware = require('./middlewares/handler-error');
 
 app.use(cors());
 app.use(logger('combined'));
@@ -27,6 +27,6 @@ app.get('/health-check', (req, res) => {
 
 // app.use(passportAuth.initialize());
 app.use(routes);
-// app.use(notFoundMiddleware);
-// app.use(errorHandlerMiddleware);
+app.use(notFoundMiddleware);
+app.use(errorHandlerMiddleware);
 module.exports = app

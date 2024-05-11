@@ -1,9 +1,16 @@
 const forecast_services = require("../service/forecast_service")
+
 const index = async (req, res, next) => {
     try {
         //passing getAll service
-        const data = await forecast_services.getAll()
+        const {firstDay, today} = req.params
+        let data 
+        if(firstDay != undefined && today != undefined){
+            
+            data = await forecast_services.getByParams(firstDay, today)
+        }
 
+        console.log(req.params);
         return res.status(200).json({
             status: 200,    
             message: 'Request Success',
@@ -108,7 +115,6 @@ const create = async (req, res, next) => {
         next(err);
     }
 };
-
 
 const get_one = async () => {
     try {

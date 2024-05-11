@@ -1,34 +1,38 @@
 const { Sequelize, Forecast } = require('../models')
 const {Op} = require('@sequelize/core')
 
-const getAll = async(none)=>{
-    const payment = await Forecast.findAndCountAll()
-    return payment
+const getByParams = async(firstDay, today)=>{
+    const forecast = await Forecast.findAndCountAll({
+        where: {
+            date: { [Op.between]: [firstDay, today] },
+          }
+    })
+    return forecast
 }
 
+const getAll = async(firstDay, today)=>{
+    const forecast = await Forecast.findAndCountAll({
+        where: {
+            date: { [Op.between]: [firstDay, today] },
+          }
+    })
+    return forecast
+}
+
+
 const dashboard = async(none)=>{
-    const payment = await Forecast.findAndCountAll({
-         limit: 7,
+    const forecast = await Forecast.findAndCountAll({
+         limit: 30,
          order: [
             ['date', 'DESC']
           ]
         })
-    return payment
+    return forecast
 }
 
 const lookup = async(date)=>{
-    const payment = Forecast.findAll({where:{date:date}})
-    return payment
-}
-
-const getbyWeek = async(week)=>{
-    const payment = Forecast.findAll({where:{week:week}})
-    return payment
-}
-
-const getbyId = async(params)=>{
-    const payment = Payment.findOne({where:{id:params}})
-    return payment
+    const forecast = Forecast.findAll({where:{date:date}})
+    return forecast
 }
 
 const create = async (payload) => {
@@ -39,33 +43,41 @@ const create = async (payload) => {
 
     return create;
 }
-const update = async (PaymentId, payload) => {
-    const result = await Payment.update(payload, {
-        where: {
-            id: PaymentId,
-        },
-        individualHooks: true
-    })
-    return result
-};
+const getbyWeek = async(week)=>{
+    const forecast = Forecast.findAll({where:{week:week}})
+    return forecast
+}
 
-const destroy = async (PaymentId) => {
-    const result = await Payment.destroy({
-        where: {
-            id: PaymentId,
-        },
-        individualHooks: true
-    })
-    return result
-};
+// const getbyId = async(params)=>{
+//     const payment = Payment.findOne({where:{id:params}})
+//     return payment
+// }
+
+// const update = async (PaymentId, payload) => {
+//     const result = await Payment.update(payload, {
+//         where: {
+//             id: PaymentId,
+//         },
+//         individualHooks: true
+//     })
+//     return result
+// };
+
+// const destroy = async (PaymentId) => {
+//     const result = await Payment.destroy({
+//         where: {
+//             id: PaymentId,
+//         },
+//         individualHooks: true
+//     })
+//     return result
+// };
 module.exports=
 {
     lookup,
     getAll,
     create,
-    update,
-    destroy,
-    getbyId,
     getbyWeek,
-    dashboard
+    dashboard,
+    getByParams
 }
