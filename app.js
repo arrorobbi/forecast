@@ -1,7 +1,7 @@
 const express = require('express');
 // const path = require('path');
 const logger = require('morgan');
-// const bodyParser = require('body-parser')
+const cors = require('cors')
 const routes = require('./router/index')
 // const passportAuth = require('./config/passport-jwt')
 
@@ -10,7 +10,7 @@ const app = express();
 // const notFoundMiddleware = require('./middlewares/not-found');
 // const errorHandlerMiddleware = require('./middlewares/handler-error');
 
-// app.use('/uploads', express.static("upload"))
+app.use(cors());
 app.use(logger('combined'));
 
 app.use(express.json());

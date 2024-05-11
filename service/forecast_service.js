@@ -6,8 +6,23 @@ const getAll = async(none)=>{
     return payment
 }
 
+const dashboard = async(none)=>{
+    const payment = await Forecast.findAndCountAll({
+         limit: 7,
+         order: [
+            ['date', 'DESC']
+          ]
+        })
+    return payment
+}
+
 const lookup = async(date)=>{
     const payment = Forecast.findAll({where:{date:date}})
+    return payment
+}
+
+const getbyWeek = async(week)=>{
+    const payment = Forecast.findAll({where:{week:week}})
     return payment
 }
 
@@ -50,5 +65,7 @@ module.exports=
     create,
     update,
     destroy,
-    getbyId
+    getbyId,
+    getbyWeek,
+    dashboard
 }

@@ -11,6 +11,9 @@ module.exports = {
       date: {
         type: Sequelize.DATE
       },
+      week: {
+        type: Sequelize.STRING
+      },
       RTS: {
         type: Sequelize.FLOAT
       },
@@ -24,6 +27,9 @@ module.exports = {
         type: Sequelize.FLOAT
       },
       actual_upper: {
+        type: Sequelize.FLOAT
+      },
+      manpower: {
         type: Sequelize.FLOAT
       },
       createdAt: {

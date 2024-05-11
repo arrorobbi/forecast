@@ -20,11 +20,13 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
     },
     date: DataTypes.DATE,
+    week: DataTypes.STRING,
     RTS: DataTypes.FLOAT,
     upper: DataTypes.FLOAT,
     forecast: DataTypes.FLOAT,
     actual_forecast: DataTypes.FLOAT,
-    actual_upper: DataTypes.FLOAT
+    actual_upper: DataTypes.FLOAT,
+    manpower: DataTypes.FLOAT
   }, {
     sequelize,
     modelName: 'Forecast',

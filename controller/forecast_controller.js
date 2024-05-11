@@ -18,20 +18,84 @@ const index = async (req, res, next) => {
     }
 }
 
+const dashboard = async (req, res, next) => {
+    try {
+        //passing getAll service
+        const data = await forecast_services.dashboard()
+
+        return res.status(200).json({
+            status: 200,    
+            message: 'Request Success',
+            payload: data
+        })
+
+    } catch (error) {
+        if (error.message) {
+            next({status: 400, message: error.message, data: {}})
+        }
+        next(error)
+    }
+}
+
+
+const weekly = async (req, res, next) => {
+    try {
+        //passing getAll service
+        const week = req.params.week
+        const data = await forecast_services.getbyWeek(week)
+        let totalRTS = 0 
+
+        data.map(data => {
+            totalRTS += data.dataValues.RTS
+        })
+
+        return res.status(200).json({
+            status: 200,    
+            message: 'Request Success',
+            payload: data,
+            totalRTS: totalRTS
+        })
+
+    } catch (error) {
+        if (error.message) {
+            next({status: 400, message: error.message, data: {}})
+        }
+        next(error)
+    }
+}
+
+const week = (data) =>{
+    const date = new Date(data);
+    const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
+    const pastDaysOfYear = (date - firstDayOfYear) / 86400000;
+    const result = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+    return result
+  }
+
 const create = async (req, res, next) => {
     try {
         const { RTS, actual_forecast} = req.body
         const timeElapsed = Date.now();
         const today = new Date(timeElapsed);
         const upper = await get_one()
+        let manpower = 0
         const forecast = ((RTS * upper) / 100) + RTS
+        const actual_upper = ((actual_forecast - RTS) / RTS) * 100
+
+        if(forecast >= 30000){
+            let forecastDW = forecast - 30000
+            manpower = forecastDW / 4900
+        }
+
         const payload = {
-            date: today,
+            date: today.setHours(0, 0, 0, 0),
+            week: week(today.setHours(0, 0, 0, 0)),
             RTS: RTS,
             upper: upper,
-            forecast:forecast,
+            forecast: Math.round(forecast),
             actual_forecast: actual_forecast,
-            actual_upper: ((actual_forecast - RTS) / RTS) * 100
+            actual_upper: Math.round(actual_upper),
+            manpower: manpower.toFixed(2)
         }
         const result = await forecast_services.create(payload)
         return res.status(201).json({
@@ -59,6 +123,7 @@ const get_one = async () => {
         for( let count = 0 ; count < 3 ; count++){
             // Calculate the date for last week
             if(count === 0){
+                
 
                 const lastWeekDate = new Date(today);
                 const date = lastWeekDate.setDate(today.getDate() - 7);
@@ -72,14 +137,19 @@ const get_one = async () => {
 
         for(date of last_date){
             const lookup = await forecast_services.lookup(date)
-            actual_upper.push(lookup[0].dataValues.actual_upper)
+            
+            for(upper of lookup){
+                actual_upper.push(upper.dataValues.actual_upper)
+            }
         }
 
+        console.log(actual_upper);
         for(data of actual_upper){
-            const roundedNumber = data.toFixed(2);
-            const float = parseFloat(roundedNumber);
+            const float =  Math.round(data);
             average = average + float
         }
+
+
 
         return average / 4
     } catch (error) {
@@ -90,5 +160,8 @@ const get_one = async () => {
 module.exports = {
     index,
     create,
-    get_one
+    get_one,
+    week,
+    weekly,
+    dashboard
 }

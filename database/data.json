@@ -1,0 +1,185 @@
+[{
+    "date": "2024-04-01 00:00:00.000 +0700",
+    "RTS": 58532,
+    "upper": 70,
+    "forecast": 99504,
+    "actual_upper": 57,
+    "actual_forecast": 91692
+},
+{
+    "date": "2024-04-02 00:00:00.000 +0700",
+    "RTS": 33336,
+    "upper": 66,
+    "forecast": 55329,
+    "actual_upper": 59,
+    "actual_forecast": 53096
+},
+{
+    "date": "2024-04-03 00:00:00.000 +0700",
+    "RTS": 33246,
+    "upper": 59,
+    "forecast": 52953,
+    "actual_upper": 48,
+    "actual_forecast": 49346
+},
+{
+    "date": "2024-04-04 00:00:00.000 +0700",
+    "RTS": 32246,
+    "upper": 48,
+    "forecast": 47862,
+    "actual_upper": 47,
+    "actual_forecast": 47251
+},
+{
+    "date": "2024-04-05 00:00:00.000 +0700",
+    "RTS": 25293,
+    "upper": 60,
+    "forecast": 40469,
+    "actual_upper": 64,
+    "actual_forecast": 41498
+},
+{
+    "date": "2024-04-06 00:00:00.000 +0700",
+    "RTS": 24287,
+    "upper": 64,
+    "forecast": 39847,
+    "actual_upper": 48,
+    "actual_forecast": 35968
+},
+{
+    "date": "2024-04-08 00:00:00.000 +0700",
+    "RTS": 23702,
+    "upper": 65,
+    "forecast": 39108,
+    "actual_upper": 49,
+    "actual_forecast": 35259
+},
+{
+    "date": "2024-04-09 00:00:00.000 +0700",
+    "RTS": 8441,
+    "upper": 65,
+    "forecast": 13928,
+    "actual_upper": 70,
+    "actual_forecast": 14367
+},
+{
+    "date": "2024-04-12 00:00:00.000 +0700",
+    "RTS": 15942,
+    "upper": 49,
+    "forecast": 23715,
+    "actual_upper": 48,
+    "actual_forecast": 23628
+},
+{
+    "date": "2024-04-15 00:00:00.000 +0700",
+    "RTS": 63916,
+    "upper": 49,
+    "forecast": 95081,
+    "actual_upper": 40,
+    "actual_forecast": 89563
+},
+{
+    "date": "2024-04-16 00:00:00.000 +0700",
+    "RTS": 42418,
+    "upper": 40,
+    "forecast": 59439,
+    "actual_upper": 38,
+    "actual_forecast": 28671
+},
+{
+    "date": "2024-04-17 00:00:00.000 +0700",
+    "RTS": 30674,
+    "upper": 50,
+    "forecast": 46011,
+    "actual_upper": 52,
+    "actual_forecast": 46676
+},
+{
+    "date": "2024-04-18 00:00:00.000 +0700",
+    "RTS": 26696,
+    "upper": 62,
+    "forecast": 43248,
+    "actual_upper": 58,
+    "actual_forecast": 42051
+},
+{
+    "date": "2024-04-19 00:00:00.000 +0700",
+    "RTS": 25309,
+    "upper": 62,
+    "forecast": 41001,
+    "actual_upper": 57,
+    "actual_forecast": 39851
+},
+{
+    "date": "2024-04-20 00:00:00.000 +0700",
+    "RTS": 23695,
+    "upper": 62,
+    "forecast": 38386,
+    "actual_upper": 69,
+    "actual_forecast": 39975
+},
+{
+    "date": "2024-04-22 00:00:00.000 +0700",
+    "RTS": 40086,
+    "upper": 62,
+    "forecast": 64939,
+    "actual_upper": 66,
+    "actual_forecast": 66598
+},
+{
+    "date": "2024-04-23 00:00:00.000 +0700",
+    "RTS": 32869,
+    "upper": 62,
+    "forecast": 53248,
+    "actual_upper": 51,
+    "actual_forecast": 49744
+},
+{
+    "date": "2024-04-24 00:00:00.000 +0700",
+    "RTS": 98020,
+    "upper": 62,
+    "forecast": 45392,
+    "actual_upper": 67,
+    "actual_forecast": 46790
+},
+{
+    "date": "2024-04-25 00:00:00.000 +0700",
+    "RTS": 25153,
+    "upper": 70,
+    "forecast": 42760,
+    "actual_upper": 77,
+    "actual_forecast": 44450
+},
+{
+    "date": "2024-04-26 00:00:00.000 +0700",
+    "RTS": 22448,
+    "upper": 90,
+    "forecast": 42651,
+    "actual_upper": 106,
+    "actual_forecast": 46350
+},
+{
+    "date": "2024-04-27 00:00:00.000 +0700",
+    "RTS": 24033,
+    "upper": 106,
+    "forecast": 49623,
+    "actual_upper": 113,
+    "actual_forecast": 51234
+},
+{
+    "date": "2024-04-29 00:00:00.000 +0700",
+    "RTS": 43028,
+    "upper": 90,
+    "forecast": 81753,
+    "actual_upper": 69,
+    "actual_forecast": 72831
+},
+{
+    "date": "2024-04-30 00:00:00.000 +0700",
+    "RTS": 30011,
+    "upper": 69,
+    "forecast": 50802,
+    "actual_upper": 66,
+    "actual_forecast": 69744
+}
+]
