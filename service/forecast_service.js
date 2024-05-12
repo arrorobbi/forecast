@@ -48,10 +48,10 @@ const getbyWeek = async(week)=>{
     return forecast
 }
 
-// const getbyId = async(params)=>{
-//     const payment = Payment.findOne({where:{id:params}})
-//     return payment
-// }
+const getbyId = async(params)=>{
+    const forecast = Forecast.findOne({where:{id:params}})
+    return forecast
+}
 
 // const update = async (PaymentId, payload) => {
 //     const result = await Payment.update(payload, {
@@ -79,5 +79,6 @@ module.exports=
     create,
     getbyWeek,
     dashboard,
-    getByParams
+    getByParams,
+    getbyId
 }
